@@ -14,18 +14,10 @@
     ],
     "require": {
         "sonata-project/news-bundle": "~2.3",
-        "symbio/orangegate-admin-bundle": "~1.0@dev",
-        "symbio/orangegate-user-bundle": "~1.0@dev",
-        "symbio/orangegate-media-bundle": "~1.0@dev",
-        "symbio/orangegate-classification-bundle": "~1.0@dev",
-        "sonata-project/formatter-bundle": "~2.3",
-        "sonata-project/easy-extends-bundle": "~2.1",
-        "sonata-project/intl-bundle": "~2.1",
-        "sonata-project/datagrid-bundle": "~2.2@dev",
-        "sonata-project/core-bundle": "~2.3,>=2.3.1",
-        "friendsofsymfony/rest-bundle": "~1.1",
-        "jms/serializer-bundle": "~0.11",
-        "nelmio/api-doc-bundle": "~2.4"
+        "symbio/orangegate4-admin-bundle": "~1.0@dev",
+        "symbio/orangegate4-user-bundle": "~1.0@dev",
+        "symbio/orangegate4-media-bundle": "~1.0@dev",
+        "symbio/orangegate4-classification-bundle": "~1.0@dev"
     },
     "require-dev": {
     },
