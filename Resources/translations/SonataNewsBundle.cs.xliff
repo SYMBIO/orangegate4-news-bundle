@@ -48,7 +48,7 @@
             </trans-unit>
             <trans-unit id="breadcrumb.link_post_list">
                 <source>breadcrumb.link_post_list</source>
-                <target>Články</target>
+                <target>Aktuality</target>
             </trans-unit>
             <trans-unit id="breadcrumb.link_post_edit">
                 <source>breadcrumb.link_post_edit</source>
@@ -72,7 +72,7 @@
             </trans-unit>
             <trans-unit id="posts">
                 <source>posts</source>
-                <target>Články</target>
+                <target>Aktuality</target>
             </trans-unit>
             <trans-unit id="categories">
                 <source>categories</source>
@@ -305,7 +305,7 @@ Rychlé odkazy na moderování
             </trans-unit>
             <trans-unit id="filter_label_posts">
                 <source>filter.label_posts</source>
-                <target>Články</target>
+                <target>Aktuality</target>
             </trans-unit>
             <trans-unit id="batch.comment_enable">
                 <source>batch.comment_enable</source>
@@ -341,7 +341,7 @@ Rychlé odkazy na moderování
             </trans-unit>
             <trans-unit id="view_all_posts">
                 <source>view_all_posts</source>
-                <target>Zobrazit články</target>
+                <target>Zobrazit aktuality</target>
             </trans-unit>
             <trans-unit id="post_is_public">
                 <source>post_is_public</source>
@@ -389,7 +389,7 @@ Rychlé odkazy na moderování
             </trans-unit>
             <trans-unit id="sidemenu.link_edit_post">
                 <source>sidemenu.link_edit_post</source>
-                <target>Článek</target>
+                <target>Aktualita</target>
             </trans-unit>
         </body>
     </file>
