@@ -28,7 +28,7 @@ class Post
 
     /**
      * @Gedmo\Translatable
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $abstract;
 

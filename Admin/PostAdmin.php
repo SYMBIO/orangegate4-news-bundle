@@ -136,4 +136,37 @@ class PostAdmin extends BaseAdmin
     {
         $this->permalinkGenerator = $permalinkGenerator;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function prePersist($object)
+    {
+        parent::prePersist($object);
+
+        $translations = $object->getTranslations();
+
+        foreach ($translations as $trans) {
+            $trans->setObject($object);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+
+    /**
+     * @param \Symbio\OrangeGate\PageBundle\Entity\Block $object
+     * @return mixed|void
+     */
+    public function preUpdate($object)
+    {
+        parent::preUpdate($object);
+
+        $translations = $object->getTranslations();
+
+        foreach ($translations as $trans) {
+            $trans->setObject($object);
+        }
+    }
 }
