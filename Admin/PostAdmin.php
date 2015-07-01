@@ -169,8 +169,12 @@ class PostAdmin extends BaseAdmin
             $trans->setObject($object);
         }
 
-        foreach ($object->getPostHasMedias() as $phm) {
-            $phm->setPost($object);
+        foreach ($object->getPostHasImages() as $phi) {
+            $phi->setPost($object);
+        }
+
+        foreach ($object->getPostHasFiles() as $phf) {
+            $phf->setPost($object);
         }
     }
 
@@ -192,8 +196,12 @@ class PostAdmin extends BaseAdmin
             $trans->setObject($object);
         }
 
-        foreach ($object->getPostHasMedias() as $phm) {
-            $phm->setPost($object);
+        foreach ($object->getPostHasImages() as $phi) {
+            $phi->setPost($object);
+        }
+
+        foreach ($object->getPostHasFiles() as $phf) {
+            $phf->setPost($object);
         }
     }
 }
