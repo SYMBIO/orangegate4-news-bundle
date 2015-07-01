@@ -8,3 +8,8 @@ services:
             - [setTranslationDomain, [%sonata.news.admin.post.translation_domain%]]
             - [setPermalinkGenerator, [@orangegate.news.permalink.generator]]
 
+    orangegate.news.admin.post_has_media:
+        class: Symbio\OrangeGate\NewsBundle\Admin\PostHasMediaAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Content, label: posts_media }
+        arguments: [null, Symbio\OrangeGate\NewsBundle\Entity\PostHasMedia, null]

@@ -65,6 +65,15 @@ class PostAdmin extends BaseAdmin
                         )
                     ))
 
+                    ->add('postHasMedias', 'orangegate_type_media_collection', array(
+                        'label' => 'Medias',
+                        'required' => false,
+                        'context' => 'news',
+                        'media_type' => 'image'
+                    ), array(
+                        'sortable' => 'position'
+                    ))
+
                     ->add('publicationDateStart', 'orangegate_type_datetime_picker', array(
                         'dp_use_seconds' => false,
                         'dp_side_by_side' => true,
@@ -149,6 +158,10 @@ class PostAdmin extends BaseAdmin
         foreach ($translations as $trans) {
             $trans->setObject($object);
         }
+
+        foreach ($object->getPostHasMedias() as $phm) {
+            $phm->setPost($object);
+        }
     }
 
     /**
@@ -167,6 +180,10 @@ class PostAdmin extends BaseAdmin
 
         foreach ($translations as $trans) {
             $trans->setObject($object);
+        }
+
+        foreach ($object->getPostHasMedias() as $phm) {
+            $phm->setPost($object);
         }
     }
 }

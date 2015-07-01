@@ -90,6 +90,13 @@ class Post
      */
     protected $image;
 
+
+    /**
+     * @ORM\OrderBy({"position" = "ASC"})
+     * @ORM\OneToMany(targetEntity="PostHasMedia", mappedBy="post", cascade={"persist"}, orphanRemoval=true)
+     */
+    protected $postHasMedias;
+
     /**
      * @ORM\ManyToOne(targetEntity="Symbio\OrangeGate\ClassificationBundle\Entity\Collection", cascade={"persist"})
      * @ORM\JoinColumn(name="collection_id", referencedColumnName="id", nullable=true)
@@ -114,6 +121,7 @@ class Post
 
     public function __construct()
     {
+        $this->postHasMedias = new \Doctrine\Common\Collections\ArrayCollection();
         $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
         $this->setPublicationDateStart(new \DateTime);
     }
@@ -454,5 +462,38 @@ class Post
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+
+    /**
+     * Add postHasMedias
+     *
+     * @param \Symbio\OrangeGate\NewsBundle\Entity\PostHasMedia $postHasMedias
+     * @return Post
+     */
+    public function addPropertyHasMedia(\Symbio\OrangeGate\NewsBundle\Entity\PostHasMedia $postHasMedias)
+    {
+        $this->postHasMedias[] = $postHasMedias;
+
+        return $this;
+    }
+
+    /**
+     * Remove postHasMedias
+     *
+     * @param \Symbio\OrangeGate\NewsBundle\Entity\PostHasMedia $postHasMedias
+     */
+    public function removePostHasMedia(\Symbio\OrangeGate\NewsBundle\Entity\PostHasMedia $postHasMedias)
+    {
+        $this->postHasMedias->removeElement($postHasMedias);
+    }
+
+    /**
+     * Get postHasMedias
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPostHasMedias()
+    {
+        return $this->postHasMedias;
     }
 }
