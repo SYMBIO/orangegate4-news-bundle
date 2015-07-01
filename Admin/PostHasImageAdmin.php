@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Knp\Menu\ItemInterface as MenuItemInterface;
 use Sonata\AdminBundle\Admin\AdminInterface;
 
-class PostHasMediaAdmin extends BaseAdmin
+class PostHasImageAdmin extends BaseAdmin
 {
     protected $translationDomain = 'SonataNewsBundle';
 

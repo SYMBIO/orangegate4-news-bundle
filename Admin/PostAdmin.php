@@ -34,6 +34,7 @@ class PostAdmin extends BaseAdmin
                     'class' => 'col-md-8'
                 ))
                 ->add('translations', 'orangegate_translations', array(
+                    'translation_domain' => $this->translationDomain,
                     'label' => false,
                     'fields' => array(
                             'title' => array(),
@@ -65,11 +66,20 @@ class PostAdmin extends BaseAdmin
                         )
                     ))
 
-                    ->add('postHasMedias', 'orangegate_type_media_collection', array(
-                        'label' => 'Medias',
+                    ->add('postHasImages', 'orangegate_type_media_collection', array(
+                        'label' => 'Images',
                         'required' => false,
                         'context' => 'news',
                         'media_type' => 'image'
+                    ), array(
+                        'sortable' => 'position'
+                    ))
+
+                    ->add('postHasFiles', 'orangegate_type_media_collection', array(
+                        'label' => 'Files',
+                        'required' => false,
+                        'context' => 'news',
+                        'media_type' => 'file'
                     ), array(
                         'sortable' => 'position'
                     ))

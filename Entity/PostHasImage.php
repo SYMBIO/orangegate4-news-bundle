@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table()
  */
-class PostHasMedia
+class PostHasImage
 {
 
     /**
@@ -27,7 +27,7 @@ class PostHasMedia
     protected $position;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Post", inversedBy="postHasMedias")
+     * @ORM\ManyToOne(targetEntity="Post", inversedBy="postHasImages")
      * @ORM\JoinColumn(name="post_id", referencedColumnName="id", nullable=true)
      */
     protected $post;
@@ -52,7 +52,7 @@ class PostHasMedia
      * Set position
      *
      * @param integer $position
-     * @return PropertyHasMedia
+     * @return PropertyHasImage
      */
     public function setPosition($position = null)
     {
@@ -75,7 +75,7 @@ class PostHasMedia
      * Set post
      *
      * @param Post $post
-     * @return PostHasMedia
+     * @return PostHasImage
      */
     public function setPost(Post $post = null)
     {
@@ -85,7 +85,7 @@ class PostHasMedia
     }
 
     /**
-     * Get property
+     * Get post
      *
      * @return \Symbio\OrangeGate\MediaBundle\Entity\Post
      */
@@ -95,7 +95,7 @@ class PostHasMedia
     }
 
     /**
-     * Set media
+     * Set post
      *
      * @param \Symbio\OrangeGate\MediaBundle\Entity\Media $media
      * @return PropertyHasMedia

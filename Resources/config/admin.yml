@@ -8,8 +8,14 @@ services:
             - [setTranslationDomain, [%sonata.news.admin.post.translation_domain%]]
             - [setPermalinkGenerator, [@orangegate.news.permalink.generator]]
 
-    orangegate.news.admin.post_has_media:
-        class: Symbio\OrangeGate\NewsBundle\Admin\PostHasMediaAdmin
+    orangegate.news.admin.post_has_image:
+        class: Symbio\OrangeGate\NewsBundle\Admin\PostHasImageAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: Content, label: posts_media }
-        arguments: [null, Symbio\OrangeGate\NewsBundle\Entity\PostHasMedia, null]
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Content, label: posts_image }
+        arguments: [null, Symbio\OrangeGate\NewsBundle\Entity\PostHasImage, null]
+
+    orangegate.news.admin.post_has_file:
+        class: Symbio\OrangeGate\NewsBundle\Admin\PostHasFileAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, group: Content, label: posts_file }
+        arguments: [null, Symbio\OrangeGate\NewsBundle\Entity\PostHasFile, null]

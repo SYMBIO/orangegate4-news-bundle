@@ -391,6 +391,62 @@ Rychlé odkazy na moderování
                 <source>sidemenu.link_edit_post</source>
                 <target>Aktualita</target>
             </trans-unit>
+            <trans-unit id="Images">
+                <source>Images</source>
+                <target>Obrázky</target>
+            </trans-unit>
+            <trans-unit id="Image">
+                <source>Image</source>
+                <target>Obrázek</target>
+            </trans-unit>
+            <trans-unit id="Files">
+                <source>Files</source>
+                <target>Soubory</target>
+            </trans-unit>
+            <trans-unit id="Enabled">
+                <source>Enabled</source>
+                <target>Povolený</target>
+            </trans-unit>
+            <trans-unit id="Collection">
+                <source>Collection</source>
+                <target>Kolekce</target>
+            </trans-unit>
+            <trans-unit id="Publication Date Start">
+                <source>Publication Date Start</source>
+                <target>Začátek publikace</target>
+            </trans-unit>
+            <trans-unit id="Options">
+                <source>Options</source>
+                <target>Nastavení</target>
+            </trans-unit>
+            <trans-unit id="General">
+                <source>General</source>
+                <target>Obecné</target>
+            </trans-unit>
+            <trans-unit id="Title">
+                <source>Title</source>
+                <target>Titulek</target>
+            </trans-unit>
+            <trans-unit id="Abstract">
+                <source>Abstract</source>
+                <target>Abstrakt</target>
+            </trans-unit>
+            <trans-unit id="Content">
+                <source>Content</source>
+                <target>Obsah</target>
+            </trans-unit>
+            <trans-unit id="Summary">
+                <source>Summary</source>
+                <target>Shrnutí</target>
+            </trans-unit>
+            <trans-unit id="Author">
+                <source>Author</source>
+                <target>Autor</target>
+            </trans-unit>
+            <trans-unit id="Author title">
+                <source>Author title</source>
+                <target>Titul autora</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

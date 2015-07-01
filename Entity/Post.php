@@ -93,9 +93,15 @@ class Post
 
     /**
      * @ORM\OrderBy({"position" = "ASC"})
-     * @ORM\OneToMany(targetEntity="PostHasMedia", mappedBy="post", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="PostHasImage", mappedBy="post", cascade={"persist", "remove"}, orphanRemoval=true)
      */
-    protected $postHasMedias;
+    protected $postHasImages;
+
+    /**
+     * @ORM\OrderBy({"position" = "ASC"})
+     * @ORM\OneToMany(targetEntity="PostHasFile", mappedBy="post", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    protected $postHasFiles;
 
     /**
      * @ORM\ManyToOne(targetEntity="Symbio\OrangeGate\ClassificationBundle\Entity\Collection", cascade={"persist"})
@@ -121,7 +127,8 @@ class Post
 
     public function __construct()
     {
-        $this->postHasMedias = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->postHasImages = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->postHasFiles = new \Doctrine\Common\Collections\ArrayCollection();
         $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
         $this->setPublicationDateStart(new \DateTime);
     }
@@ -465,35 +472,68 @@ class Post
     }
 
     /**
-     * Add postHasMedias
+     * Add postHasImages
      *
-     * @param \Symbio\OrangeGate\NewsBundle\Entity\PostHasMedia $postHasMedias
+     * @param \Symbio\OrangeGate\NewsBundle\Entity\PostHasImage $postHasImages
      * @return Post
      */
-    public function addPropertyHasMedia(\Symbio\OrangeGate\NewsBundle\Entity\PostHasMedia $postHasMedias)
+    public function addPostHasImage(\Symbio\OrangeGate\NewsBundle\Entity\PostHasImage $postHasImage)
     {
-        $this->postHasMedias[] = $postHasMedias;
+        $this->postHasImages[] = $postHasImage;
 
         return $this;
     }
 
     /**
-     * Remove postHasMedias
+     * Remove postHasImages
      *
-     * @param \Symbio\OrangeGate\NewsBundle\Entity\PostHasMedia $postHasMedias
+     * @param \Symbio\OrangeGate\NewsBundle\Entity\PostHasImage $postHasImages
      */
-    public function removePostHasMedia(\Symbio\OrangeGate\NewsBundle\Entity\PostHasMedia $postHasMedias)
+    public function removePostHasImage(\Symbio\OrangeGate\NewsBundle\Entity\PostHasImage $postHasImage)
     {
-        $this->postHasMedias->removeElement($postHasMedias);
+        $this->postHasImages->removeElement($postHasImage);
     }
 
     /**
-     * Get postHasMedias
+     * Get postHasImages
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getPostHasMedias()
+    public function getPostHasImages()
     {
-        return $this->postHasMedias;
+        return $this->postHasImages;
+    }
+
+    /**
+     * Add postHasFiles
+     *
+     * @param \Symbio\OrangeGate\NewsBundle\Entity\PostHasFile $postHasFile
+     * @return Post
+     */
+    public function addPropertyHasFile(\Symbio\OrangeGate\NewsBundle\Entity\PostHasFile $postHasFile)
+    {
+        $this->postHasFiles[] = $postHasFile;
+
+        return $this;
+    }
+
+    /**
+     * Remove postHasFiles
+     *
+     * @param \Symbio\OrangeGate\NewsBundle\Entity\PostHasFile $postHasFile
+     */
+    public function removePostHasFile(\Symbio\OrangeGate\NewsBundle\Entity\PostHasFile $postHasFile)
+    {
+        $this->postHasFiles->removeElement($postHasFile);
+    }
+
+    /**
+     * Get postHasFiles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPostHasFiles()
+    {
+        return $this->postHasFiles;
     }
 }
