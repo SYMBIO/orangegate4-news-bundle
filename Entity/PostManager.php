@@ -58,6 +58,7 @@ class PostManager extends BaseEntityManager
         return null;
     }
 
+
     /**
      * {@inheritdoc}
      *
@@ -115,6 +116,36 @@ class PostManager extends BaseEntityManager
 
         return $pager;
     }
+
+    public function findPublishedNews(array $criteria, $orderBy = array(), $limit = null, $offset = null)
+    {
+        $repository = $this->getRepository();
+        $qb = $repository->createQueryBuilder('p');
+        $qb->where('p.publicationDateStart <= NOW()');
+
+        $index = 0;
+        foreach ($criteria as $k => $v) {
+            $qb->andWhere('p.'.$k.' = :param'.$index);
+            $qb->setParameter('param'.$index, $v);
+        }
+
+        if ($offset) {
+            $qb->setFirstResult($offset);
+        }
+
+        if ($limit) {
+            $qb->setMaxResults($limit);
+        }
+
+        if ($orderBy) {
+            foreach ($orderBy as $k => $v){
+                $qb->addOrderBy('p.'.$k, $v);
+            }
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
 
     /**
      * @param string $date  Date in format YYYY-MM-DD
