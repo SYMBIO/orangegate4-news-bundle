@@ -146,6 +146,36 @@ class PostManager extends BaseEntityManager
         return $qb->getQuery()->getResult();
     }
 
+    public function findByYear($year)
+    {
+        $query = $this->getEntityManager()->createQuery('
+            SELECT p
+            FROM SymbioOrangeGateNewsBundle:Post p
+            WHERE
+                YEAR(p.publicationDateStart) = :year
+                AND
+                p.publicationDateStart <= NOW()
+            ORDER BY
+                p.publicationDateStart DESC
+        ')->setParameter('year', $year);
+
+        return $query->getResult();
+    }
+
+    public function getAllYears()
+    {
+        $query = $this->getEntityManager()->createQuery('
+            SELECT DISTINCT YEAR(p.publicationDateStart)
+            FROM SymbioOrangeGateNewsBundle:Post p
+            WHERE
+                p.publicationDateStart <= NOW()
+            ORDER BY
+                p.publicationDateStart DESC
+        ');
+
+        return $query->getArrayResult();
+    }
+
 
     /**
      * @param string $date  Date in format YYYY-MM-DD
