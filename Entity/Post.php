@@ -2,6 +2,7 @@
 
 namespace Symbio\OrangeGate\NewsBundle\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -140,7 +141,8 @@ class Post
     {
         $this->title = $title;
 
-        $this->setSlug(Tag::slugify($title));
+        $slugGen = new Slugify();
+        $this->setSlug($slugGen->slugify($title));
     }
 
     /**

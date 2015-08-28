@@ -2,6 +2,7 @@
 
 namespace Symbio\OrangeGate\NewsBundle\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Translatable\Entity\MappedSuperclass\AbstractTranslation;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -68,7 +69,6 @@ class PostTranslation extends AbstractTranslation
      */
     protected $authorTitle;
     /**
-     * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(type="string", length=255)
      */
     protected $slug;
@@ -87,8 +87,9 @@ class PostTranslation extends AbstractTranslation
     public function setTitle($title)
     {
         $this->title = $title;
+        $slugGen = new Slugify();
 
-        $this->setSlug(Tag::slugify($title));
+        $this->setSlug($slugGen->slugify($title));
     }
 
     /**
