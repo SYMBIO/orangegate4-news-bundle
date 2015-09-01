@@ -176,6 +176,18 @@ class PostManager extends BaseEntityManager
         return $query->getArrayResult();
     }
 
+    public function findPostBySlug($slug)
+    {
+        $query = $this->getEntityManager()->createQuery('
+            SELECT p,pt
+            FROM SymbioOrangeGateNewsBundle:Post p
+            LEFT JOIN p.translations pt
+            WHERE
+              pt.slug = :slug
+        ')->setParameter('slug', $slug);
+
+        return $query->getSingleResult();
+    }
 
     /**
      * @param string $date  Date in format YYYY-MM-DD
