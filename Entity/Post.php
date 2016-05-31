@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Sonata\ClassificationBundle\Model\CollectionInterface;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity (repositoryClass="Symbio\OrangeGate\NewsBundle\Entity\PostRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Post
@@ -35,7 +35,7 @@ class Post
 
     /**
      * @Gedmo\Translatable
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $content;
 
